@@ -1,0 +1,41 @@
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+cout &lt;&lt; &quot;¿Que es un lenguaje compilado?\n&quot;;
+cout &lt;&lt; &quot;es aquel cuyo código fuente se traduce directamente a código máquina
+(binario) mediante un compilador.\n\n&quot;;
+
+cout &lt;&lt; &quot;¿Que es un lenguaje interpretado?\n&quot;;
+cout &lt;&lt; &quot;Es aquel cuyo código fuente se ejecuta directamente línea por línea
+mediante un programa intermedio llamado intérprete, sin necesidad de una
+compilación previa a lenguaje máquina.\n\n&quot;;
+
+cout &lt;&lt; &quot;¿A que tipo pertenece C++?\n&quot;;
+cout &lt;&lt; &quot;C++ es un lenguaje compilado.\n\n&quot;;
+
+int opcion;
+
+cout &lt;&lt; &quot;Seleccione un paradigma:\n&quot;;
+
+cout &lt;&lt; &quot;1. Estructurado\n&quot;;
+cout &lt;&lt; &quot;2. Orientado a Objetos\n&quot;;
+cout &lt;&lt; &quot;Opcion: &quot;;
+cin &gt;&gt; opcion;
+
+if (opcion == 1) {
+cout &lt;&lt; &quot;\nParadigma Estructurado:\n&quot;;
+cout &lt;&lt; &quot;Organiza el programa en funciones y sigue una secuencia logica.\n&quot;;
+}
+else if (opcion == 2) {
+cout &lt;&lt; &quot;\nParadigma Orientado a Objetos:\n&quot;;
+cout &lt;&lt; &quot;Organiza el programa en objetos que contienen datos y
+funciones.\n&quot;;
+}
+else {
+cout &lt;&lt; &quot;\nOpcion no valida.\n&quot;;
+}
+
+return 0;
+}
