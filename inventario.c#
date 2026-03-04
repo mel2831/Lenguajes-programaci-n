@@ -1,0 +1,90 @@
+using System;
+
+class Inventario
+{
+    static string[] nombres =
+    {
+        "Leche", "Pan", "Agua", "Arroz", "Azúcar"
+    };
+
+    static double[] precios =
+    {
+        3500, 1200, 1500, 4200, 2800
+    };
+
+    static int[] stocks =
+    {
+        20, 30, 15, 10, 25
+    };
+
+    static double totalVentas = 0;
+
+    static void VerInventario()
+    {
+        Console.WriteLine("=== Inventario ===");
+        for (int i = 0; i < nombres.Length; i++)
+        {
+            Console.WriteLine($"{i + 1}. {nombres[i]} - ${precios[i]} - Stock: {stocks[i]}");
+        }
+    }
+
+    static bool Vender(int idx, int cant)
+    {
+        if (stocks[idx] < cant)
+            return false;
+
+        stocks[idx] -= cant;
+        totalVentas += precios[idx] * cant;
+        return true;
+    }
+
+    static void Main()
+    {
+        int opcion;
+
+        do
+        {
+            Console.WriteLine("\n¿Qué desea hacer?");
+            Console.WriteLine("1. Ver inventario");
+            Console.WriteLine("2. Registrar venta");
+            Console.WriteLine("3. Ver total ventas");
+            Console.WriteLine("0. Salir");
+
+            opcion = int.Parse(Console.ReadLine());
+
+            switch (opcion)
+            {
+                case 1:
+                    VerInventario();
+                    break;
+
+                case 2:
+                    VerInventario();
+                    Console.Write("Seleccione producto (número): ");
+                    int producto = int.Parse(Console.ReadLine()) - 1;
+
+                    Console.Write("Cantidad: ");
+                    int cantidad = int.Parse(Console.ReadLine());
+
+                    if (Vender(producto, cantidad))
+                        Console.WriteLine("Venta realizada.");
+                    else
+                        Console.WriteLine("Stock insuficiente.");
+                    break;
+
+                case 3:
+                    Console.WriteLine($"Total vendido: ${totalVentas}");
+                    break;
+
+                case 0:
+                    Console.WriteLine("Saliendo...");
+                    break;
+
+                default:
+                    Console.WriteLine("Opción inválida.");
+                    break;
+            }
+
+        } while (opcion != 0);
+    }
+}
