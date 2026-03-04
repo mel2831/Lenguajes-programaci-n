@@ -1,0 +1,60 @@
+#include &lt;iostream&gt;
+using namespace std;
+
+void areaCirculo(double radio) {
+double area = 3.1416 * radio * radio;
+cout &lt;&lt; &quot;Area del circulo: &quot; &lt;&lt; area &lt;&lt; endl;
+}
+
+void factorial(int n) {
+long long fact = 1;
+for (int i = 1; i &lt;= n; i++) {
+fact *= i;
+}
+cout &lt;&lt; &quot;Factorial: &quot; &lt;&lt; fact &lt;&lt; endl;
+}
+
+void parImpar(int n) {
+if (n % 2 == 0)
+cout &lt;&lt; &quot;El numero es PAR\n&quot;;
+else
+
+cout &lt;&lt; &quot;El numero es IMPAR\n&quot;;
+}
+
+int main() {
+
+int opcion;
+
+cout &lt;&lt; &quot;MENU\n&quot;;
+cout &lt;&lt; &quot;1. Area de un circulo\n&quot;;
+cout &lt;&lt; &quot;2. Factorial\n&quot;;
+cout &lt;&lt; &quot;3. Par o Impar\n&quot;;
+cout &lt;&lt; &quot;Seleccione una opcion: &quot;;
+cin &gt;&gt; opcion;
+
+if (opcion == 1) {
+double r;
+cout &lt;&lt; &quot;Ingrese el radio: &quot;;
+cin &gt;&gt; r;
+areaCirculo(r);
+}
+else if (opcion == 2) {
+int n;
+cout &lt;&lt; &quot;Ingrese un numero: &quot;;
+cin &gt;&gt; n;
+factorial(n);
+}
+else if (opcion == 3) {
+
+int n;
+cout &lt;&lt; &quot;Ingrese un numero: &quot;;
+cin &gt;&gt; n;
+parImpar(n);
+}
+else {
+cout &lt;&lt; &quot;Opcion no valida\n&quot;;
+}
+
+return 0;
+}
