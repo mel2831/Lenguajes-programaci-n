@@ -1,0 +1,133 @@
+using System;
+
+class Inventario
+{
+    static string[] nombres =
+    {
+        "Leche", "Pan", "Agua", "Arroz", "Azúcar"
+    };
+
+    static double[] precios =
+    {
+        3500, 1200, 1500, 4200, 2800
+    };
+
+    static int[] stocks =
+    {
+        20, 30, 15, 10, 25
+    };
+
+    static double totalVentas = 0;
+
+    static void verInventario()
+    {
+        Console.WriteLine("=== INVENTARIO ===");
+        for (int i = 0; i < nombres.Length; i++)
+        {
+            Console.WriteLine($"{i + 1}. {nombres[i]} - ${precios[i]} - Stock: {stocks[i]}");
+        }
+    }
+
+    static void buscarProducto()
+    {
+        Console.Write("Ingrese el nombre del producto: ");
+        string buscar = Console.ReadLine();
+
+        bool encontrado = false;
+
+        for (int i = 0; i < nombres.Length; i++)
+        {
+            if (nombres[i].ToLower() == buscar.ToLower())
+            {
+                Console.WriteLine($"Producto encontrado:");
+                Console.WriteLine($"{nombres[i]} - ${precios[i]} - Stock: {stocks[i]}");
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (!encontrado)
+        {
+            Console.WriteLine("Producto no encontrado.");
+        }
+    }
+
+    static bool vender(int idx, int cant)
+    {
+        if (stocks[idx] < cant) return false;
+
+        stocks[idx] -= cant;
+        totalVentas += precios[idx] * cant;
+        return true;
+    }
+
+    static void registrarVenta()
+    {
+        verInventario();
+        Console.Write("Seleccione el número del producto: ");
+        int producto = int.Parse(Console.ReadLine()) - 1;
+
+        if (producto < 0 || producto >= nombres.Length)
+        {
+            Console.WriteLine("Producto inválido.");
+            return;
+        }
+
+        Console.Write("Ingrese la cantidad a vender: ");
+        int cantidad = int.Parse(Console.ReadLine());
+
+        if (vender(producto, cantidad))
+        {
+            Console.WriteLine("Venta realizada con éxito.");
+        }
+        else
+        {
+            Console.WriteLine("Stock insuficiente.");
+        }
+    }
+
+    static void Main()
+    {
+        int opcion;
+
+        do
+        {
+            Console.WriteLine("\n¿Qué desea hacer?");
+            Console.WriteLine("1. Ver inventario");
+            Console.WriteLine("2. Buscar producto");
+            Console.WriteLine("3. Registrar venta");
+            Console.WriteLine("4. Ver total de ventas");
+            Console.WriteLine("5. Salir");
+
+            opcion = int.Parse(Console.ReadLine());
+
+            switch (opcion)
+            {
+                case 1:
+                    verInventario();
+                    break;
+
+                case 2:
+                    buscarProducto();
+                    break;
+
+                case 3:
+                    registrarVenta();
+                    break;
+
+                case 4:
+                    Console.WriteLine($"Total de ventas: ${totalVentas}");
+                    break;
+
+                case 5:
+                    Console.WriteLine("Saliendo del sistema...");
+                    break;
+
+                default:
+                    Console.WriteLine("Opción inválida.");
+                    break;
+            }
+
+        } while (opcion != 5);
+    }
+}
