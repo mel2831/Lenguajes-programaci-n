@@ -1,20 +1,36 @@
-using system;
-string nombre;
-int edad;
-float peso;
-float estatura;
-bool seguro;
+using System;
 
-static void main()
+class Program
 {
-    console.WriteLine("Ingrese su nombre:");
-    console.ReadLine(nombre);
-    console.WriteLine("Ingrese su edad:");
-    int.Parse(console.ReadLine(edad));
-    console.WriteLine("Ingrese su peso(Kg):");
-    float.Parse(console.ReadLine(peso));
-    console.WriteLine("Ingrese su estatura(m):");
-    float.Parse(console.ReadLine(estatura));
-    console.WriteLine("¿Tiene seguro?(s/n):");
-    bool.Parse(console.ReadLine(seguro));
+    static void Main()
+    {
+        string nombre;
+        int edad;
+        double peso;
+        double estatura;
+        string seguro;
+        double imc;
+
+        Console.WriteLine("Ingrese su nombre:");
+        nombre= Console.ReadLine();
+        Console.WriteLine("Ingrese su edad:");
+        edad= int.Parse(Console.ReadLine());
+        Console.WriteLine("Ingrese su peso(Kg):");
+        peso= double.Parse(Console.ReadLine());
+        Console.WriteLine("Ingrese su estatura(m):");
+        estatura= double.Parse(Console.ReadLine());
+        Console.WriteLine("¿Tiene seguro?(s/n):");
+        seguro= Console.ReadLine();
+
+        imc = peso / (estatura * estatura);
+
+        Console.WriteLine("==================================================");
+        Console.WriteLine("||                 FICHA MÉDICA                 ||");
+        Console.WriteLine("==================================================");
+        Console.WriteLine($"Nombre:  {nombre}");
+        Console.WriteLine($"Edad:  {edad}");
+        Console.WriteLine($"IMC:  {imc:F2}");
+        Console.WriteLine($"Seguro:  {seguro}");
+        Console.WriteLine("==================================================");
+    }
 }
