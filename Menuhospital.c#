@@ -1,0 +1,67 @@
+using System;
+class Menuhospital
+{
+    static void Main() 
+    {
+        int opcion;
+        double precio;
+        int tiempoEspera;
+        string servicio;
+        Console.WriteLine("========================================");
+        Console.WriteLine("||           MENÚ DE SERVICIOS:         ||");
+        Console.WriteLine("||1. Consulta                           ||");
+        Console.WriteLine("||2. Laboratorio                        ||");
+        Console.WriteLine("||3. Rayos X                            ||");
+        Console.WriteLine("||4. Farmacia                           ||");
+        Console.WriteLine("||5. Salir                              ||");
+        Console.WriteLine("========================================");
+        Console.WriteLine("Ingrese la opción requerida:");
+        opcion = int.Parse(Console.ReadLine());
+
+        switch (opcion) 
+        {
+            case 1:
+                servicio = "Consulta";
+                precio = 50.000;
+                tiempoEspera = 20;
+                Console.WriteLine($"Servicio: {servicio}");
+                Console.WriteLine($"Tiempo de espera: {tiempoEspera} minutos");
+                Console.WriteLine($"Precio: ${precio}");
+                break;
+
+            case 2:
+                servicio = "Laboratorio";
+                precio = 80.000;
+                tiempoEspera = 30;
+                Console.WriteLine($"Servicio: {servicio}");
+                Console.WriteLine($"Tiempo de espera: {tiempoEspera} minutos");
+                Console.WriteLine($"Precio: ${precio}");
+                break;
+
+            case 3:
+                servicio = "Rayos X";
+                precio = 120.000;
+                tiempoEspera = 45;
+                Console.WriteLine($"Servicio: {servicio}");
+                Console.WriteLine($"Tiempo de espera: {tiempoEspera} minutos");
+                Console.WriteLine($"Precio: ${precio}");
+                break;
+
+            case 4:
+                servicio = "Farmacia";
+                precio = 60.000;
+                tiempoEspera = 15;
+                Console.WriteLine($"Servicio: {servicio}");
+                Console.WriteLine($"Tiempo de espera: {tiempoEspera} minutos");
+                Console.WriteLine($"Precio: ${precio}");
+                break;
+
+            default:
+                Console.WriteLine("Opción no válida. Por favor, seleccione una opción del 1 al 5.");
+                break;
+
+
+
+        }
+    }
+}
