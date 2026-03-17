@@ -37,10 +37,16 @@ class Inventario
         totalVentas += precios[idx] * cant;
         return true;
     }
+    static string nombre
+    {
+        foreach(string nombre in nombres);
+        Console.WriteLine()
+    }
 
     static void Main()
     {
         int opcion;
+        string nombre;
 
         do
         {
