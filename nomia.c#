@@ -1,0 +1,65 @@
+using System;
+
+class Nomina    
+{
+    static void Main()
+    {
+        int NUM_EMPLEADOS = 50; 
+        
+        string[,] matriz_datos = new string[NUM_EMPLEADOS, 5]; 
+        double[] vector_salarios_netos = new double[NUM_EMPLEADOS]; 
+        
+        Console.WriteLine($"--- Calculadora de nómina ---");
+        for (int i = 0; i < NUM_EMPLEADOS; i++)
+        {
+            Console.Write("Ingrese el nombre: ");
+            string nombre = Console.ReadLine();
+            
+            Console.Write("Ingrese el salario base: ");
+            double salarioBase = double.Parse(Console.ReadLine());
+            
+            Console.Write("Ingrese las deducciones: ");
+            double deducciones = double.Parse(Console.ReadLine());
+            
+            Console.Write("Ingrese los bonos: ");
+            double bonos = double.Parse(Console.ReadLine());
+            
+            Console.Write("Ingrese el pago por horas extras: ");
+            double horasExtras = double.Parse(Console.ReadLine());
+            
+            matriz_datos[i, 0] = nombre;
+            matriz_datos[i, 1] = salarioBase.ToString();
+            matriz_datos[i, 2] = deducciones.ToString();
+            matriz_datos[i, 3] = bonos.ToString();
+            matriz_datos[i, 4] = horasExtras.ToString(); 
+            
+            double salarioNeto = (salarioBase + bonos + horasExtras) - deducciones;
+            
+            vector_salarios_netos[i] = salarioNeto;
+        }
+
+        Console.WriteLine("\n" + new string('-', 40));
+        Console.WriteLine("REPORTE DE SALARIOS NETOS");
+        Console.WriteLine(new string('-', 40));
+
+        for (int i = 0; i < NUM_EMPLEADOS; i++)
+        {
+            string nombreEmpleado = matriz_datos[i, 0];
+            double salarioFinal = vector_salarios_netos[i];
+            
+            if (salarioFinal < 2000000)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{nombreEmpleado}: ${salarioFinal:N2}");
+                Console.ResetColor(); 
+            }
+            else
+            {
+                Console.WriteLine($"{nombreEmpleado}: ${salarioFinal:N2}");
+            }
+        }
+        
+        Console.WriteLine("Presione cualquier tecla para salir...");
+        Console.ReadKey();
+    }
+}
