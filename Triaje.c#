@@ -1,0 +1,44 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double temperatura;
+        int presion;
+        string triaje;
+        string recomendacion;
+
+
+        Console.WriteLine("Ingrese su temperatura:");
+        temperatura = double.Parse(Console.ReadLine());
+        Console.WriteLine("Ingrese su presión sistólica:");
+        presion = int.Parse(Console.ReadLine());
+
+        if (temperatura > 39 || presion > 180)
+        {
+            triaje = "ROJO (Crítico)";
+            recomendacion = "Atención médica inmediata.";
+
+        } else if (temperatura > 38 || presion > 140)
+        {
+            triaje = "AMARILLO (Urgente)";
+            recomendacion = "Requiere valoración rápida.";
+
+        }
+        else 
+        {
+            triaje = "VERDE (Estable)";
+            recomendacion = "Esperar turno normal.";
+
+        }
+
+
+        Console.WriteLine($"Temperatura: {temperatura}");
+        Console.WriteLine($"Presión sistólica: {presion}");
+        Console.WriteLine("-------------------------------");
+        Console.WriteLine($"Triaje: {triaje}");
+        Console.WriteLine($"REcomendación: {recomendacion}");
+
+    }
+}
