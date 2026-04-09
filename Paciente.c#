@@ -38,13 +38,13 @@ class program
 
         public void MostrarPerfil() 
         {
-            Console.WriteLine("=============================");
+            Console.WriteLine("==========================");
             Console.WriteLine("👨‍⚕️Perfil del Paciente:");
-            Console.WriteLine("=============================");
+            Console.WriteLine("==========================");
             Console.WriteLine($"║ Nombre: {nombre.PadRight(15)}║");
             Console.WriteLine($"║ Edad:   {edad.ToString().PadRight(15)}║");
             Console.WriteLine($"║ Género: {genero.PadRight(15)}║");
-            Console.WriteLine("=============================");
+            Console.WriteLine("==========================");
             Console.WriteLine("                             ");
         }
     }
