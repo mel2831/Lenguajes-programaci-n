@@ -43,7 +43,7 @@ class program
 
         string nombre;
         string contraseña;
-        int opcion;
+        int opcion=0;
         List<Cita> citasGuardadas = new List<Cita>();
 
         Console.WriteLine("Ingrese, por favor, su nombre:");
