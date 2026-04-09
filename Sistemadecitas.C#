@@ -1,0 +1,112 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class program
+{
+    public class Usuario
+    {
+        private string nombre;
+        private string contraseña;
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+        public string Contraseña
+        {
+            get { return contraseña; }
+            set { contraseña = value; }
+        }
+    }
+
+    public class Cita
+    {
+        private string fecha;
+        private string paciente;
+        public string Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
+        public string Paciente
+        {
+            get { return paciente; }
+            set { paciente = value; }
+        }
+    }
+    public static void Main()
+    {
+        Usuario usuarioA = new Usuario();
+        usuarioA.Nombre = "lilo";
+        usuarioA.Contraseña = "1000";
+
+        string nombre;
+        string contraseña;
+        int opcion;
+        List<Cita> citasGuardadas = new List<Cita>();
+
+        Console.WriteLine("Ingrese, por favor, su nombre:");
+        nombre = Console.ReadLine();
+        Console.WriteLine("🔑Ingrese, por favor, su contraseña:");
+        contraseña = Console.ReadLine();
+
+        if (nombre == usuarioA.Nombre && contraseña == usuarioA.Contraseña)
+        {
+            
+            do{
+                Console.WriteLine("============================");
+                Console.WriteLine("||   Sistema de citas      ||");
+                Console.WriteLine("============================");
+                Console.WriteLine("||1. Registrar cita        ||");
+                Console.WriteLine("||2. Ver citas guardadas   ||");
+                Console.WriteLine("||3. Salir                 ||");
+                Console.WriteLine("============================");
+                Console.WriteLine("¿Qué desea hacer hoy");
+                try
+                {
+                    opcion = int.Parse(Console.ReadLine());
+                }catch (FormatException)
+                {
+                    Console.WriteLine("Por favor, ingrese un número válido.");
+                    continue;
+                }
+                switch (opcion) 
+                {
+                    case 1:
+                        Cita citaA = new Cita();
+                        Console.WriteLine("Ingrese el nombre del paciente:");
+                        citaA.Paciente = Console.ReadLine();
+                        Console.WriteLine("Ingrese la fecha de la cita (dd/mm/yyyy):");
+                        citaA.Fecha = Console.ReadLine();
+                        citasGuardadas.Add(citaA);
+                        File.AppendAllText("citas.txt", $"{citaA.Paciente} - {citaA.Fecha}\n");
+                        Console.WriteLine("Cita registrada exitosamente.");
+                        break;
+
+                    case 2:
+                        for (int i=0; i< citasGuardadas.Count; i++) 
+                        {
+                            Console.WriteLine($"Cita {i+1}: Fecha: {citasGuardadas[i].Fecha}, Paciente: {citasGuardadas[i].Paciente}");
+                        }
+                        break;
+
+                    case 3:
+                        Console.WriteLine("¡Hasta luego!");
+                        break;
+                          
+                
+                }
+
+            } while (opcion != 3) ;
+
+        }
+        else
+        {
+            Console.WriteLine("Nombre o contraseña incorrectos. Intente nuevamente.");
+        }
+
+
+
+    }
+}
