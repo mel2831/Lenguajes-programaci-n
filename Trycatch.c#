@@ -1,0 +1,28 @@
+using System;
+
+class Program
+{
+   
+    static void Main()
+    {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+        bool esValido = false;
+
+        while (esValido==false) {
+            try
+            {
+                int historiaClinica;
+                Console.Write("Ingrese su Historia Clínica:");
+                historiaClinica = int.Parse(Console.ReadLine());
+                Console.WriteLine($"✅Historia Clínica ingresada exitosamente: #{historiaClinica}");
+                esValido = true;
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("❌Error: Solo se permiten números.");
+            }
+
+        }
+    }
+}
