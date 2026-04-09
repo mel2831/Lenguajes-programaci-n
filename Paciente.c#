@@ -1,0 +1,68 @@
+using System;
+
+class program
+{
+    public class Paciente 
+    {
+        private string nombre;
+        private int edad;
+        private string genero;
+
+        public string GetNombre()
+        {
+            return nombre;
+        }
+
+        public void SetNombre(string nuevoNombre)
+        {
+            nombre = nuevoNombre;
+        }
+        public int GetEdad()
+        {
+            return edad;
+        }
+
+        public void SetEdad(int nuevaEdad)
+        {
+            edad = nuevaEdad;
+        }
+        public string GetGenero()
+        {
+            return genero;
+        }
+
+        public void SetGenero(string nuevoGenero)
+        {
+            genero = nuevoGenero;
+        }
+
+        public void MostrarPerfil() 
+        {
+            Console.WriteLine("=============================");
+            Console.WriteLine("👨‍⚕️Perfil del Paciente:");
+            Console.WriteLine("=============================");
+            Console.WriteLine($"║ Nombre: {nombre.PadRight(15)}║");
+            Console.WriteLine($"║ Edad:   {edad.ToString().PadRight(15)}║");
+            Console.WriteLine($"║ Género: {genero.PadRight(15)}║");
+            Console.WriteLine("=============================");
+            Console.WriteLine("                             ");
+        }
+    }
+    static void Main()
+    {
+        Paciente pacienteA = new Paciente();
+        pacienteA.SetNombre("Carlos Ruiz");
+        pacienteA.SetEdad(45);
+        pacienteA.SetGenero("Masculino"); 
+        pacienteA.MostrarPerfil();
+       
+        
+        Paciente pacienteB = new Paciente();
+        pacienteB.SetNombre("Pedro Jaramillo");
+        pacienteB.SetEdad(57);
+        pacienteB.SetGenero("Masculino");
+        pacienteB.MostrarPerfil();
+
+
+    }
+}
